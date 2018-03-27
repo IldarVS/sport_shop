@@ -1,0 +1,15 @@
+{% load staticfiles %}
+  <ul class="nav navbar-nav navbar-left">
+    <li><a href="{% url 'main' %}">На главную</a></li>
+    <li>
+        <a href="{% url 'admin:users' %}" class="{% if request.resolver_match.url_name == 'users' %}active{% endif %}">
+        Пользователи   
+        </a>
+    </li>
+    <li>
+        <a href="{% url 'admin:categories' %}" 
+        class="{% if request.resolver_match.url_name == 'categories' or category.name %}active{% endif %}">
+            Категории товаров{% if category %}:&nbsp; <span>{{ category.name }}</span>{% endif %}
+        </a>
+    </li>
+</ul>

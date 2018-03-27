@@ -1,0 +1,96 @@
+{% extends "mainapp/base.html" %}
+{% load staticfiles %}
+
+{% block menu %}
+<div class ="hero-white">
+<div class ="header clearfix">
+{% include ' mainapp/includes/inc_menu.html' %}
+</div>
+</div>
+{% endblock %}
+{% block content %}
+<div class="details">
+<div class="links clearfix">
+{% include 'mainapp/includes/inc_categories_menu.html' %}
+</div>
+<div class ="products_list">
+<div class ="title clearfix">
+<h2>
+{{ category.name|title }}
+</h2>
+
+<div class ="paginator" text-align:center>
+    <h3> Страницы
+       {% if products.has_previous %}
+         {% if products.previous_page_number == 1 %}
+        <a href ="{% url 'products:page' category.pk products.previous_page_number %}">
+         {{ products.previous_page_number }}
+        </a>
+     {% else %}
+               <a href="{% url 'products:page' category.pk 1 %}">
+            1 .... 
+        </a>
+    
+            <a href="{% url 'products:page' category.pk products.previous_page_number %}">
+            {{products.previous_page_number }} 
+                    </a>
+    
+            
+    {% endif %}
+       {% endif %}
+        <span class="current" style="color:red" >
+            <b> {{ products.number }} </b>
+        </span> 
+    
+     
+        {% if products.has_next %}
+        {% if products.paginator.num_pages == products.next_page_number %}
+            
+           <a href="{% url 'products:page' category.pk products.paginator.num_pages %}">
+            {{ products.paginator.num_pages }} 
+        </a>
+    {% else %}
+                      <a href="{% url 'products:page' category.pk products.next_page_number %}">
+            {{ products.next_page_number }} ....
+        </a>
+    
+               <a href="{% url 'products:page' category.pk products.paginator.num_pages %}">
+            {{ products.paginator.num_pages }} 
+        </a>
+    
+    {% endif %}
+    
+    {% endif %}
+</h3>
+</div>
+
+
+
+</div>
+<div class ="category-products clearfix">
+{% for product in products %}
+ 
+<a href ="{% url 'basket:add' product.pk %}">
+
+      <div class="col-lg-4 col-md-4">
+        <div class="benefitUnit">
+          <div class="benefitIcon">
+
+<img src ="/media/{{ product.image }}" alt ="product" height ="300"  width="300">
+</div>
+<div class="benefitHead">
+          
+<!--<img src ="{% static 'img/icon - hover . png ' %}" alt =" hover ">-->
+<h4> {{ product.category.name }} {{ product.name }}</h4>
+<!--<p>{{ product.description }}</p>-->
+</div>
+</a>
+</div>
+</div>
+
+{% endfor %}
+</div>
+</div>
+</div>
+<div class ="clr"></div>
+{% endblock %}

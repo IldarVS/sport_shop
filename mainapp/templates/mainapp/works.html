@@ -1,0 +1,32 @@
+
+{% extends "mainapp/base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}
+    {{ block.super }}
+    / {{ page|title }}
+{% endblock %}
+
+
+{% block content %}
+    {% if work_places %}
+        {% for place in work_places %}
+            <div class="block">
+                <div class="header">
+                    <a href="">
+                        {{ place.name|title }}
+                    </a>
+                </div>
+                <div class="post">
+                    Должность: {{ place.post|title }}
+                </div>
+                <div class="desc">
+                    {{ place.desc|title }}
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        Нигде не работал
+    {% endif %}
+{% endblock %}

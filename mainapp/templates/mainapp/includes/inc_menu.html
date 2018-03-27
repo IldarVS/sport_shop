@@ -1,0 +1,51 @@
+{% load staticfiles %}
+<ul class="nav navbar-nav navbar-right">
+    <li>
+        <a href="{% url 'main' %}" class="{% if request.resolver_match.url_name == 'main' %}active{% endif %}">
+            Главная
+        </a>
+    </li>
+    <li>
+        <a href="{% url 'products:index' %}">
+            Товары
+        </a>
+    </li>
+    <li>
+        <a href="{% url 'contact' %}" class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
+            Контакты
+        </a>
+    </li>
+     <li>
+        {% if user.is_authenticated %}
+            <a href="{% url 'auth:logout' %}">Выйти</a>
+        {% else %}
+            <a href="{% url 'auth:login' %}">Войти</a>
+        {% endif %}
+    </li>
+              
+       {% if user.is_authenticated %}
+        <li>
+            <a href="{% url 'auth:edit' %}">
+                {{ user.first_name|default:'Пользователь' }}
+            </a>
+        </li>
+        {% if user.is_superuser %}
+        <li>
+            <a href= "{% url 'admin:users' %}" >администрирование</a>
+        </li>
+        {% endif %}
+        
+    {% endif %}
+   {% if user.is_authenticated %}
+        <li>
+<a href ="{% url 'basket:view' %}" class="basket">
+Корзина
+{% if basket %} 
+{{ basket.0.total_cost|floatformat:0 }} руб
+({{ basket.0.total_quantity }} шт)
+{% endif %}
+</a>
+        </li>
+    {% endif %}
+
+</ul>

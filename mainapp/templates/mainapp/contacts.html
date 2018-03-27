@@ -1,0 +1,48 @@
+{% extends "mainapp/base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+<main>
+<h1>Контакты</h1>
+
+        <fieldset> <legend>Напишите нам</legend>
+            <form action="#" method="POST">
+
+            <p>
+                <input type="text" name="textfield" placeholder="Введите ваше имя">
+                <br>
+                <input type="email" name="usermail" placeholder="Введите ваш электронный адрес">
+                <br>
+                <input type="text" name="textfield" placeholder="Тема сообщения">
+                <br>
+                Суть вашего письма:
+                <br>
+                <textarea name="message" cols="30" rows="4" maxlength="150"></textarea>
+                <br>
+                <input type="submit" value="отправить">
+            </p>
+               </form>
+        </fieldset>
+
+
+
+    <h2>Адрес</h2>
+
+    <p>
+        <b>Телефон:</b>&nbsp;+7&nbsp;917&nbsp;361&nbsp;96&nbsp;20
+        <br>
+        <b>Адрес:</b> &nbsp;г.Уфа, Проспект Октября, д.31
+        <br>
+        <b>Email:</b>&nbsp;ildar_vs@mail.ru
+    </p>
+    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ab8bec5588cb75db0e4add05e13a53ec604cdc00f06c634c392def119e3c9120e&amp;width=100%&amp;height=374px&amp;lang=ru_RU&amp;scroll=true">
+    </script>
+    <hr>
+</main>
+
+
+{% endblock %}

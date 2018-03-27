@@ -1,0 +1,58 @@
+{% load staticfiles %}
+
+<main>
+    <h1>Каталог товаров</h1>
+    <div class="container-fluid benefitsWrap">
+        <!--<div class="row benefitsHead">
+            О спорт, ты мир!!!
+        </div>-->
+        <div class="row">
+            <div class="col-lg-4 col-md-4">
+                <div class="benefitUnit">
+                    <div class="benefitIcon">
+                        <a href="{% url 'product1' %}" class = "menu_products">Беговая дорожка<br>
+                            <img src="{% static 'Images/ways.png' %} " class = "photo2" alt="Беговая дорожка" title = "Беговая дорожка" width="400" height="400"></a>
+                    </div>
+                    <div class="benefitHead">
+
+                    </div>
+                    <<div class="benefitIcon">
+                        <a href="{% url 'product2' %}" class = "menu_products"> Шведская стенка<br>
+                            <img src="{% static 'Images/sverige_wall.png' %} " class = "photo2" alt="Шведская стенка" title = "Шведская стенка" width="400" height="400"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <div class="benefitUnit">
+                    <div class="benefitIcon">
+                        <a href="{% url 'product3' %}" class = "menu_products"> Батут<br>
+                            <img src="{% static 'Images/Batut.png' %} " class = "photo2" alt="Батут" title = "Батут" width="400" height="400"/>
+                        </a>
+                    </div>
+                    <!--<div class="benefitHead">
+                        Для тех кто может и знает все
+                    </div>-->
+                    <!--<div class="benefitText">
+                        Вы можете изменить себя
+                    </div>-->
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <div class="benefitUnit">
+                    <div class="benefitIcon">
+                        <a href="{% url 'product4' %}" class = "menu_products">Гимнастические маты<br>
+                            <img src="{% static 'Images/mats.png' %} " class = "photo2" alt="Гимнастические маты" title = "Гимнастические маты" width="400" height="400"/>
+                        </a>
+                    </div>
+                    <!--<div class="benefitHead">
+                        Юным
+                    </div>-->
+                    <!--<div class="benefitText">
+                        Вам доступно все          </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>

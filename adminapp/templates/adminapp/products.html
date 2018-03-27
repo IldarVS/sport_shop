@@ -1,0 +1,58 @@
+{% extends 'adminapp/base.html' %}
+{% load staticfiles %}
+
+
+
+{% block content %}
+  <div class="products_list">
+		<button class="new_product">
+			<a href={% url 'admin:product_create' category.pk %}>добавить новый товар</a>
+		</button>
+		
+<br>
+              <br>
+            <h4>В наличии</h4>
+                <br>	  
+	  	
+	  	  	  
+{% for object in object_list %}
+			
+    <div class="product_record {% if not object.is_active %}not_active{% endif %}">
+    	  
+    <div class="container-fluid benefitsWrap">
+        <div class="row">
+            <div class="col-lg-4 col-md-4">
+                <div class="benefitUnit">
+                    <div class="benefitIcon">
+                        <a href={% url 'admin:product_read' object.pk %} class = "menu_products"><b>{{ object.name|title }}</b>
+                            <img src="/media/{{object.image|default:'products_images/default.jpg'}}" alt="{{ object.name }}" width="400" height="400"></a>
+                <div class="product_actions">
+				        <a href={% url 'admin:product_read' object.pk %}>подробнее</a>
+						<a href={% url 'admin:product_update' object.pk %}>редактировать</a>
+					    <a href={% url 'admin:product_delete' object.pk %}>удалить</a>
+					</div>
+				<div class="summary">
+					<b>цена</b>
+					<p>{{ object.price }} руб</p>
+					<b>количество</b>
+					<p>{{ object.quantity }}</p>
+				</div>
+				<div class="product_desc">
+					{{ object.short_desc|title }}
+				</div>
+			</div>
+
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>  	    	    	  
+	</div>  	  	    	    	    	    	  
+				
+						{% endfor%}
+	</div>
+
+   
+  
+
+{% endblock %}

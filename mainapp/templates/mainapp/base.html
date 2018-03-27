@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <title>
+    {% block title %}
+    {{ title|title }}
+    {% endblock %}
+  </title>
+  {% block css %}
+  <link rel="stylesheet" href="{% static 'bootstrap-3.3.7-dist/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
+  {% endblock %}
+</head>
+<body>
+{% block header %}
+<header>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Мой магазин</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	{% include 'mainapp/includes/inc_menu.html' %}
+      
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+   <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-offset-2 col-lg-8">
+        <div class="jumbotron">
+          <h1>Добро пожаловать</h1>
+            Это мой сайт, на котором представлены спортивные товары <i> для детей </i> и их родителей,
+            которые хотят видеть своих детей веселыми и здоровыми.
+          <p><a class="btn btn-lg pull-right" href="#" role="button">Подробнее</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+{% endblock %}
+{% block content %}
+
+{% endblock %}
+
+{% block footer %}
+<footer>
+  <div class="container-fluid">
+    <div class="row footerLinksWrap">
+      <div class="col-lg-2 col-md-2 col-sm-4 footerAddressWrap">
+        <address>
+          <strong>Магазин товаров для спорта</strong><br>
+          Проспект Октября 21<br>
+          Уфа 450058<br>
+          <abbr title="Phone">P:</abbr> (123) 456-7890
+        </address>
+      </div>
+    </div>
+  </div>
+
+  <div class="copyrights">
+    Все права защищены.&copy;{% now "Y" %}. Ильдар Сагдеев.
+  </div>
+</footer>
+
+<script src="{% static 'jquery/jquery-1.12.4.min.js' %}"></script>
+<script src="{% static 'bootstrap-3.3.7-dist/js/bootstrap.min.js' %}"></script>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,117 @@
+{% extends "mainapp/base.html" %}
+{% load staticfiles %}
+{% block title %}
+{{ title }}
+{% endblock %}
+<p>Good day</p>
+{% block content %}
+<!--
+{% for product in products %}
+<div class =" block ">
+<a href ="#">
+<img src ="/media/{{ product.image }}" alt ="{{ product.short_desc }}">
+<div class ="text">
+<h3>{{ product.category.name }}</h3>
+<h4>{{ product.name }}</h4>
+<p>{{ product.description }}</p>
+</div>
+</a>
+</div>
+{% endfor %}
+-->
+<main>
+<div class="container-fluid benefitsWrap">
+    <div class="row benefitsHead">
+      О спорт, ты мир!!!
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-4">
+        <div class="benefitUnit">
+          <div class="benefitIcon">
+            <img src="{% static 'images/old.jpg' %}">
+          </div>
+          <div class="benefitHead">
+            Для людей старше 60
+          </div>
+          <div class="benefitText">
+           Физкультура никому не помешает
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4">
+        <div class="benefitUnit">
+          <div class="benefitIcon">
+            <img src="{% static 'images/midle.jpg' %}">
+          </div>
+          <div class="benefitHead">
+           Для тех кто может и знает все
+          </div>
+          <div class="benefitText">
+            Вы можете изменить себя
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4">
+        <div class="benefitUnit">
+          <div class="benefitIcon">
+            <img src="{% static 'images/mini.jpg' %}">
+          </div>
+          <div class="benefitHead">
+           Юным
+          </div>
+          <div class="benefitText">
+            Вам доступно все          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="container-fluid reviewsWrap">
+<!--
+    <div class="row reviewsHead">
+      Это я
+    </div>
+-->
+
+    <div class="row reviewsContent">
+      <div class="col-lg-offset-1 col-lg-10">
+        <div class="media">
+<!--
+          <div class="media-left">
+            <a href="#">
+              <img class="media-object" src="{% static 'images/I_m_sport.png' %}" alt="Это Я"  width="400px" height=" 400px">
+            </a>
+          </div>
+-->
+          <div class="media-body">
+<!--
+            <p>
+            {{ data_begin|date:"d m" }}
+            </p>
+            <p>
+            {{ data_begin|date:"d" }} {{ data_begin|date:"m" }}
+            </p>
+            <p>
+                  {{ data_begin.day }} {{ data_begin.month }}
+            </p>
+            <p>
+                aaa  {{ data_begin.date.day }} {{ data_begin.date.month }}
+                
+            </p>
+-->
+            <h4 class="media-heading">Выбирайте здоровье и не пожалеете!!!</h4>
+            Здоровый образ жизни это рациональное питание, занятие спортом, отказ от алкоголя и курения и многое другое. Важную роль играет и закаливание. Закаливание это научно-обоснованная система использования физических факторов внешней среды для повышения сопротивляемости организма к простудным и инфекционным заболеваниям. Закаливание обязательный элемент физического воспитания, особенно важный для молодежи, так как имеет большое значение для укрепления здоровья, увеличения работоспособности, улучше...
+            <span class="hidden-xs">
+              Физическая культура уникальный учебный предмет. Его уникальность состоит в том, что он обеспечивает овладение учащимися важными знаниями о человеке, о его развитии, сведениями по анатомии, физиологии, гигиене, педагогике. Она решает задачи воспитания у учащихся необходимых ему двигательных умений и навыков. Сегодняшний день физической культуры не погоня за результатами, а кропотливая работа учителя, родителей над укреплением здоровья детей. Здоровье важнейшее условие гармонического развития ...
+<!--<p> {% if user.is_authenticated %} 1  {% else %} 2 {% endif %} 3 </p>-->
+                        </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+</main>
+{% endblock %}
