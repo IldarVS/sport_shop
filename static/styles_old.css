@@ -1,0 +1,350 @@
+@font-face {
+  font-family: "Open Sans Regular";
+  src: url("/static/fonts/OpenSansRegular.ttf");
+}
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Open Sans Regular", sans-serif;
+}
+header {
+  width: 100%;
+  background: url("/static/images/sport.jpg") no-repeat;
+  background-size: cover;
+  height: 700px;
+}
+@media all and (min-width: 480px) and (max-width: 767px) {
+  header {
+    height: 800px;
+  }
+}
+@media all and (max-width: 479px) {
+  header {
+    height: 850px;
+  }
+}
+header .navbar {
+  border-radius: 0;
+  border: none;
+  background: rgba(0, 0, 0, 0.5);
+}
+header .navbar .container-fluid .navbar-brand {
+  color: #d3d3d3;
+  background: url("/static/images/Myshop.jpg") no-repeat left center;
+  background-size: 25%;
+  padding-left: 50px;
+  margin-left: 0;
+}
+@media all and (min-width: 480px) and (max-width: 767px) {
+  header .navbar .container-fluid .navbar-brand {
+    margin-left: 15px;
+  }
+}
+@media all and (max-width: 479px) {
+  header .navbar .container-fluid .navbar-brand {
+    margin-left: 15px;
+  }
+}
+header .navbar .container-fluid .navbar-nav > li > a {
+  font-size: 17px;
+  color: #d3d3d3;
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+header .navbar .container-fluid .navbar-nav > li > a:hover {
+  color: #B3F36D;
+  background: rgba(0, 0, 0, 0.5);
+}
+@media all and (min-width: 768px) and (max-width: 991px) {
+  header .navbar .container-fluid .navbar-nav > li > a {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+header .navbar .container-fluid .navbar-toggle:hover,
+header .navbar .container-fluid .navbar-toggle:focus {
+  background: none;
+}
+header .navbar .container-fluid .navbar-toggle span {
+  background-color: #d3d3d3;
+}
+header .navbar .container-fluid .navbar-collapse {
+  border: none;
+}
+header .jumbotron {
+  margin-top: 10%;
+  background: none;
+  color: #d3d3d3;
+  text-align: justify;
+  text-shadow: 1px 1px 2px #000;
+}
+header .jumbotron .btn {
+  background: rgba(0, 0, 0, 0.8);
+  color: #d3d3d3;
+  text-shadow: none;
+  border-radius: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+}
+header .jumbotron .btn:hover {
+  color: #b3f36d;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+@media all and (max-width: 479px) {
+  main .reviewsWrap .reviewsContent .media-left {
+    display: block;
+  }
+}
+@media all and (max-width: 479px) {
+  main .reviewsWrap .reviewsContent .media-left a {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+}
+main .discountContent {
+  width: 100%;
+  height: 700px;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .discountContent .discountHead {
+  font-size: 63px;
+  text-align: center;
+  font-weight: bold;
+  color: #d3d3d3;
+  text-shadow: 1px 1px 2px #000;
+}
+main .discountContent .discountText {
+  width: 50%;
+  text-align: justify;
+  font-size: 2rem;
+  margin: 20px 0;
+  color: #d3d3d3;
+  text-shadow: 1px 1px 2px #000;
+  font-weight: bold;
+}
+@media all and (min-width: 768px) and (max-width: 991px) {
+  main .discountContent .discountText {
+    width: 90%;
+  }
+}
+@media all and (min-width: 480px) and (max-width: 767px) {
+  main .discountContent .discountText {
+    width: 90%;
+  }
+}
+@media all and (max-width: 479px) {
+  main .discountContent .discountText {
+    width: 95%;
+  }
+}
+main .discountContent button {
+  background: rgba(0, 0, 0, 0.8);
+  color: #b3f36d;
+  text-shadow: none;
+  border-radius: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  border: none;
+  padding: 20px 35px;
+}
+main .discountContent button:hover {
+  color: #d3d3d3;
+  background: rgba(0, 0, 0, 0.7);
+}
+.titl,.titl2 { color: black;
+  font-style: italic;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.titl {
+  margin-left: 30%;
+}
+
+
+.titl2 {
+  background-color: #eaeaea;
+  clear: both;
+}
+.shrt { color:#707070;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 16px;
+  float:left;
+}
+
+
+.long_txt { color:#484343;
+  font-style: italic;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+}
+
+.titl:first-letter,.titl2:first-letter {
+  font-family: WonderLand;
+  font-size: 20px;
+  color: red;
+}
+.menu_products  {
+  font-style: italic;
+  font-size: 25px;
+  color: #7d378b;
+  text-decoration: none;
+  text-decoration-color: #eaeaea;
+  float:left;
+}
+
+
+/*
+.batut {
+  list-style-image:url(/images/batut_small.png);
+}
+.mats {
+  list-style-image:url(/images/mats_small.png);
+}
+.sverige_wall {
+  list-style-image:url(/images/sverige_wall_small.png);
+}
+.ways {
+  list-style-image:url(/images/ways_small.png);
+}
+*/
+
+ol li a{
+  font-family: WonderLand;
+  src: url(static/fonts/WonderLand.ttf);
+  font-family: WonderLand, 'Comic Sans MS', cursive;
+  font-size: 15px;
+  color: #e09252;
+  text-decoration: none;
+}
+.Main_img {
+  border-radius: 100%;
+}
+.photo {
+  padding: 20px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  outline: 1px solid #666;
+  background: #f0f0f0;
+}
+
+.photo2 {
+  padding: 10px;
+}
+a:hover .photo {
+  padding: 20px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  outline: 1px solid #f8f8f8;
+  background: #f8f8f8;
+}
+
+input, textarea {
+  font-family: WonderLand;
+  src: url(static/fonts/WonderLand.ttf);
+  font-family: WonderLand, 'Comic Sans MS', cursive;
+  font-size: 16px;
+  color: #6d432d;
+  text-transform: capitalize;
+  border: 1px solid #7f859d;
+  border-radius: 3px;
+  background: #f1f1ff;
+  outline: none;
+  width: 300px;
+}
+
+
+p input:focus:nth-child(3) {
+  color: blue;
+  background-color: greenyellow;
+
+}
+table {
+  border-collapse: collapse;
+  border: 1px solid #000;
+  width:1000px;
+  height: 200px;
+}
+
+td{
+  border: 1px solid #000;
+  text-align:center;
+}
+
+th {
+  border: 1px solid #000;
+  text-align:center;
+  font-style: italic;
+  font-weight:bold;
+}
+
+.sales input:hover{
+  background-color: burlywood;
+}
+footer {
+  background: url("/static/images/sport_footer.jpg") no-repeat;
+  width: 100%;
+  background-size: cover;
+  position: relative;
+  min-height: 300px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+
+}
+footer .footerLinksWrap a {
+  display: block;
+  color: #981e9d;
+  font-size: 1.8rem;
+}
+footer .footerLinksWrap a:hover {
+  color: #0f0f0f;
+}
+@media all and (min-width: 480px) and (max-width: 767px) {
+  footer .footerLinksUnit {
+    float: left;
+    width: 33.3333333%;
+    margin-bottom: 20px;
+  }
+}
+@media all and (max-width: 479px) {
+  footer .footerLinksUnit {
+    margin-bottom: 20px;
+  }
+}
+@media all and (min-width: 480px) and (max-width: 767px) {
+  footer .footerAddressWrap {
+    width: 100%;
+    float: left;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+footer .footerAddressWrap address {
+  color: #981e9d;
+  font-size: 1.73rem;
+}
+footer .footerAddressWrap address strong {
+  color: #0d0606;
+}
+footer .copyrights {
+  width: 100%;
+  position: absolute;
+  bottom: 20px;
+  text-align: right;
+  color: #f0eb00;
+}
