@@ -22,4 +22,5 @@ url(r'^$', mainapp.products, name='index'),
 url(r'^category/(?P<pk>\d+)$', mainapp.products, name='category'),
 url(r'^category/(?P<pk>\d+)/page/(?P<page>\d+)/$', mainapp.products, name='page'),
 url(r'^product/(?P<pk>\d+)$', mainapp.product, name='product'),
+#url(r'^jeverly/', mainapp.jeverly, name='jeverly'),
    ]

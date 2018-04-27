@@ -91,26 +91,54 @@ class ProductCategoryDeleteView(DeleteView):
 
         return HttpResponseRedirect(self.get_success_url())
 
-def products(request, pk):
-    title = 'админка/продукт'
-    category = get_object_or_404(ProductCategory, pk=pk)
-    products_list = Product.objects.filter(category__pk=pk).order_by('name')
-    content = {
-    'title': title,
-    'category': category,
-    'object_list': products_list,
-    }
-    return render(request, 'adminapp/products.html' , content)   
+#def products(request, pk):
+#    title = 'админка/продукт'
+#    category = get_object_or_404(ProductCategory, pk=pk)
+#    products_list = Product.objects.filter(category__pk=pk).order_by('name')
+#    content = {
+#    'title': title,
+#    'category': category,
+#    'object_list': products_list,
+#    }
+#    return render(request, 'adminapp/products.html' , content)   
 
 
 
-#class ProductListView(ListView):
-#    model = Product
-#    template_name = 'adminapp/products.html'
+class ProductListView(ListView):
+#    context_object_name = 'product_list'
+#    queryset = Product.objects.filter(category=args[0])
+#    template_name = "adminapp/products.html"
+    model = ProductCategory
+    template_name = "adminapp/products.html"
+    
+    
+    def get_context_data(self, *args, **kwargs):
+        context = super(ProductListView, self).get_context_data(*args,**kwargs)
+        context['number'] = self.kwargs['pk']
+        context['name'] = ProductCategory.objects.get(pk=self.kwargs['pk'])
+        context["product_list"] = Product.objects.filter(category=self.kwargs['pk'])
+            
+        return context
+    
+#    def get_queryset(self):
+#        return Product.objects.filter(category=self.kwargs['pk'])
+##    
 #    
+    
+    #    model = ProductCategory
+#    template_name = "adminapp/products.html"
+#    context_object_name = "product_list"
+##    def get_context_data(self, *args, **kwargs):
+##        context = super(ProductListView, self).get_context_data(*args, **kwargs)
+##        context["product_list"] = Product.objects.all()
+###        .filter
+###        (pk=args)
+##        return context
+
+    #    object_list = Product.objects.filter(pk=pk)
 ##    def get_context_data(self, pk):
 ##        context = super(ProductListView, self).get_context_data(pk)
-###        self.object = self.get_object()
+###       self.object = self.get_object()
 ##        context['title'] = 'товары категории/просмотр'
 ###        context['object_list'] = Product.objects.filter(pk=self.object.pk)
 ###    
@@ -122,12 +150,17 @@ class ProductDetailView(DetailView):
     template_name = 'adminapp/product_read.html'
 
 
-#class ProductCreateView(CreateView):    
-#    model = Product
-#    template_name = 'adminapp/product_update.html'
-#    success_url = reverse_lazy('admin:product_create')
-#    fields = ('__all__')
-#    
+class ProductCreateView(CreateView):    
+    model = Product
+    template_name = 'adminapp/product_update.html'
+    success_url = reverse_lazy('admin:categories')
+    fields = ('__all__')
+    
+#    def get_context_data(self, *args, **kwargs):
+#        context = super(ProductCreateView, self).get_context_data(*args,**kwargs)
+#        context['object.pk'] = self.kwargs['pk']
+#        context["object_list"] = Product.objects.filter(category=self.kwargs['pk'])
+#        
 #    def get_context_data(self, **kwargs):
 #            context = super(ProductCreateView, self).get_context_data(**kwargs)
 #            context['title'] = 'товары/редактирование'
@@ -145,19 +178,20 @@ class ProductDetailView(DetailView):
 class ProductUpdateView(UpdateView):
     model = Product
     template_name = 'adminapp/product_update.html'
-    success_url = reverse_lazy('admin:products')
+    success_url = reverse_lazy('admin:categories')
     fields = ('__all__')
     
     def get_context_data(self, **kwargs):
         context = super(ProductUpdateView, self).get_context_data(**kwargs)
         context['title'] = 'товары/редактирование'
+        print(context)
         return context
 
 	
 class ProductDeleteView(DeleteView):
     model = Product
     template_name = 'adminapp/product_delete.html'
-    success_url = reverse_lazy('admin:products')
+    success_url = reverse_lazy('admin:categories')
     
     def delete(self, request, *args, **kwargs):
         self.object = self.get_object()
@@ -165,20 +199,20 @@ class ProductDeleteView(DeleteView):
         self.object.save()
         return HttpResponseRedirect(self.get_success_url())
 
-def product_create(request, pk):
-    title = 'продукт/создание'
-    category = get_object_or_404(ProductCategory, pk=pk)
-    if request.method == 'POST':
-        print(category)
-        product_form = ProductEditForm(request.POST, request.FILES)
-        if product_form.is_valid():
-            print(pk)
-            product_form.save()
-            return HttpResponseRedirect(reverse('admin:products', args=[pk]))
-    else:
-        #задаем начальное значение категории в форме
-        product_form = ProductEditForm(initial={'category': category})
-        content = {'title': title, 'update_form': product_form, 'category': category}
-        
-        return render(request, 'adminapp/product_new.html', content)    
+#def product_create(request, pk):
+#    title = 'продукт/создание'
+#    category = get_object_or_404(ProductCategory, pk=pk)
+#    if request.method == 'POST':
+#        print(category)
+#        product_form = ProductEditForm(request.POST, request.FILES)
+#        if product_form.is_valid():
+#            print(pk)
+#            product_form.save()
+#            return HttpResponseRedirect(reverse('admin:products', args=[pk]))
+#    else:
+#        #задаем начальное значение категории в форме
+#        product_form = ProductEditForm(initial={'category': category})
+#        content = {'title': title, 'update_form': product_form, 'category': category}
+#        
+#        return render(request, 'adminapp/product_new.html', content)    
 # Create your views here.

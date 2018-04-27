@@ -25,7 +25,7 @@ SECRET_KEY = '4-h!w!s)59+0$+^sf3$rufq3qo=cl^m(zme_389+=th%rqlgxb'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['192.168.1.40',
+ALLOWED_HOSTS = ['localhost','94.41.7.96'
                 ]
 
 

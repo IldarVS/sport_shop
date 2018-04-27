@@ -13,6 +13,13 @@ def main(request):
     content = { 'title': title, 'products': products, 'data_begin': data_begin}
     return render(request, 'mainapp/index.html', content)
 
+#def jeverly(request):
+#    title = 'Украшения'
+##    products = Product.objects.all()[:4]
+##    data_begin = datetime.date(day=12,month=11,year=2011)
+##    content = {'title': title}
+#    return render(request, 'mainapp/jeverly/index.php', {'title': title})
+
 
 #def products(request, pk):
 #    title='Товары'
@@ -73,7 +80,7 @@ def products (request, pk=None, page=1):
             category = get_object_or_404(ProductCategory, pk=pk)
             products = Product.objects.filter(category__pk=pk).order_by('price')
 
-        paginator = Paginator(products, 2)
+        paginator = Paginator(products, 6)
         try :
             products_paginator = paginator.page(page)
         except PageNotAnInteger:

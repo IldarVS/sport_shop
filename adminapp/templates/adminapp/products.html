@@ -5,8 +5,9 @@
 
 {% block content %}
   <div class="products_list">
+		<b>{{ name|title }}</b>
 		<button class="new_product">
-			<a href={% url 'admin:product_create' category.pk %}>добавить новый товар</a>
+			<a href={% url 'admin:product_create' number %}>добавить новый товар</a>
 		</button>
 		
 <br>
@@ -15,7 +16,7 @@
                 <br>	  
 	  	
 	  	  	  
-{% for object in object_list %}
+{% for object in product_list %}
 			
     <div class="product_record {% if not object.is_active %}not_active{% endif %}">
     	  
